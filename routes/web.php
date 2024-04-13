@@ -1,7 +1,9 @@
 <?php
 
+use App\Enum\SupportStatus;
 use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Site\SiteController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 Route::delete('/supports/{id}', [SupportController::class, 'destroy'])->name('supports.destroy');
@@ -15,5 +17,5 @@ Route::get('/supports', [SupportController::class, 'index'])->name('supports.ind
 Route::get('/contato', [SiteController::class, 'contact']);
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
