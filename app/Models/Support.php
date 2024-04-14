@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enum\SupportStatus;
+use App\Enums\SupportStatus;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
