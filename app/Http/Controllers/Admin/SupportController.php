@@ -22,7 +22,7 @@ class SupportController extends Controller
     $supports = $this->service->paginate(
       page: $request->get('page', 1),
       totalPerPage: $request->get('per_page', 6),
-      filter: $request->filter
+      filter: $request->filter,
     );
 
     $filters = ['filter' => $request->get('filter', '')];
@@ -32,9 +32,9 @@ class SupportController extends Controller
 
   public function show(string $id)
   {
-    //Support::find($id)
-    //Support::where('id', $id)->first();
-    //Support::where('id', '!=', $id)->first();
+    // Support::find($id)
+    // Support::where('id', $id)->first();
+    // Support::where('id', '!=', $id)->first();
     if (!$support = $this->service->findOne($id)) {
       return back();
     }
@@ -60,7 +60,7 @@ class SupportController extends Controller
 
   public function edit(string $id)
   {
-    //if (!$support = $support->where('id', $id)->first()) {
+    // if (!$support = $support->where('id', $id)->first()) {
     if (!$support = $this->service->findOne($id)) {
       return back();
     }
@@ -70,8 +70,8 @@ class SupportController extends Controller
 
   public function update(StoreUpdateSupport $request, Support $support, string $id)
   {
-    $this->service->update(
-      UpdateSupportDTO::makeFromRequest($request)
+    $support = $this->service->update(
+      UpdateSupportDTO::makeFromRequest($request),
     );
 
     if (!$support) {
